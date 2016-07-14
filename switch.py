@@ -3,9 +3,6 @@ import time
 import sqlite3 as lite
 #import tkMessageBox
 
-#sqlite_file = 'HON.sqlite'
-#table_name = 'tblHONResults'
-
 
 #connect to HON sqlite DB
 conn = lite.connect('HON.db')
@@ -25,9 +22,10 @@ while True:
     
     if input_stateGreen == False:
         print('GREEN Button Pressed')
-        #tkMessageBox.showinfo(title="BUTTON RESPONSE", message="GREEN!")
         #time.sleep(2.0)
-        
+        c.execute("INSERT INTO tblHONResults ('HON_VALUE','LOYALTY_ID') VALUES (1,'NA')")
+        conn.commit()
+        #print('Green Record written to DB.')
         time.sleep(0.2)
 
     input_stateBlue = GPIO.input(4)
