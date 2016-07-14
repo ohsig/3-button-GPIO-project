@@ -1,7 +1,6 @@
 import RPi.GPIO as GPIO
 import time
 import sqlite3 as lite
-#import tkMessageBox
 
 
 #connect to HON sqlite DB
@@ -34,7 +33,6 @@ while True:
     
     if input_stateBlue == False:
         print('BLUE Button Pressed')
-        #time.sleep(2.0)
         c.execute("INSERT INTO tblHONResults ('HON_VALUE','LOYALTY_ID') VALUES (2,'NA')")
         conn.commit()
         time.sleep(sleep_time)
@@ -43,7 +41,6 @@ while True:
     
     if input_stateYellow == False:
         print('YELLOW Button Pressed')
-        #time.sleep(2.0)
         c.execute("INSERT INTO tblHONResults ('HON_VALUE','LOYALTY_ID') VALUES (3,'NA')")
         conn.commit()
         time.sleep(sleep_time)
@@ -52,7 +49,6 @@ while True:
     
     if input_stateRed == False:
         print('RED Button Pressed')
-        #time.sleep(2.0)
         c.execute("INSERT INTO tblHONResults ('HON_VALUE','LOYALTY_ID') VALUES (4,'NA')")
         conn.commit()
         time.sleep(sleep_time)
