@@ -33,6 +33,8 @@ while True:
     if input_stateBlue == False:
         print('BLUE Button Pressed')
         #time.sleep(2.0)
+        c.execute("INSERT INTO tblHONResults ('HON_VALUE','LOYALTY_ID') VALUES (2,'NA')")
+        conn.commit()
         time.sleep(0.2)
 
     input_stateYellow = GPIO.input(27)
@@ -40,6 +42,8 @@ while True:
     if input_stateYellow == False:
         print('YELLOW Button Pressed')
         #time.sleep(2.0)
+        c.execute("INSERT INTO tblHONResults ('HON_VALUE','LOYALTY_ID') VALUES (3,'NA')")
+        conn.commit()
         time.sleep(0.2)
 
     input_stateRed = GPIO.input(24)
@@ -47,5 +51,7 @@ while True:
     if input_stateRed == False:
         print('RED Button Pressed')
         #time.sleep(2.0)
+        c.execute("INSERT INTO tblHONResults ('HON_VALUE','LOYALTY_ID') VALUES (4,'NA')")
+        conn.commit()
         time.sleep(0.2)
     
