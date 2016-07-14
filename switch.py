@@ -1,6 +1,7 @@
 import RPi.GPIO as GPIO
 import time
 import sqlite3 as lite
+#from PIL import Image
 
 
 #connect to HON sqlite DB
@@ -20,6 +21,10 @@ GPIO.setup(24, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 
 
 while True:
+
+    #with Image.open('Kroger_survey_question.png') as img:
+     #   img.show()
+
     input_stateGreen = GPIO.input(18)
     
     if input_stateGreen == False:
