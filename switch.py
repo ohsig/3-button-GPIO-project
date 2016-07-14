@@ -8,9 +8,12 @@ import sqlite3 as lite
 conn = lite.connect('HON.db')
 c = conn.cursor()
 
+#sleep time between button press
+sleep_time = 0.2
+
 GPIO.setmode(GPIO.BCM)
 
-#Bind pins to input & up position
+#Bind pins as input & up position
 GPIO.setup(18, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 GPIO.setup(4, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 GPIO.setup(27, GPIO.IN, pull_up_down=GPIO.PUD_UP)
@@ -22,11 +25,10 @@ while True:
     
     if input_stateGreen == False:
         print('GREEN Button Pressed')
-        #time.sleep(2.0)
-        c.execute("INSERT INTO tblHONResults ('HON_VALUE','LOYALTY_ID') VALUES (1,'NA')")
+        c.execute("INSERT INTO tblHONResults ('HON_VALUE','LOYALTY_ID') VALUES (1,'NA')") #TODO add location attr (ie. store) & terminal id
         conn.commit()
         #print('Green Record written to DB.')
-        time.sleep(0.2)
+        time.sleep(sleep_time)
 
     input_stateBlue = GPIO.input(4)
     
@@ -35,7 +37,7 @@ while True:
         #time.sleep(2.0)
         c.execute("INSERT INTO tblHONResults ('HON_VALUE','LOYALTY_ID') VALUES (2,'NA')")
         conn.commit()
-        time.sleep(0.2)
+        time.sleep(sleep_time)
 
     input_stateYellow = GPIO.input(27)
     
@@ -44,7 +46,7 @@ while True:
         #time.sleep(2.0)
         c.execute("INSERT INTO tblHONResults ('HON_VALUE','LOYALTY_ID') VALUES (3,'NA')")
         conn.commit()
-        time.sleep(0.2)
+        time.sleep(sleep_time)
 
     input_stateRed = GPIO.input(24)
     
@@ -53,5 +55,5 @@ while True:
         #time.sleep(2.0)
         c.execute("INSERT INTO tblHONResults ('HON_VALUE','LOYALTY_ID') VALUES (4,'NA')")
         conn.commit()
-        time.sleep(0.2)
+        time.sleep(sleep_time)
     
