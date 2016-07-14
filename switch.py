@@ -9,7 +9,7 @@ conn = lite.connect('HON.db')
 c = conn.cursor()
 
 #sleep time between button press
-sleep_time = 0.2
+sleep_time = 3.0
 
 GPIO.setmode(GPIO.BCM)
 
