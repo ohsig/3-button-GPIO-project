@@ -22,8 +22,8 @@ GPIO.setup(24, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 while True:
 
     input_stateGreen = GPIO.input(18)
-    input_stateBlue = GPIO.input(4)
-    input_stateYellow = GPIO.input(27)
+    input_stateYellow = GPIO.input(4)
+    input_stateOrange = GPIO.input(27)
     input_stateRed = GPIO.input(24)
    
     if input_stateGreen == False:
@@ -32,15 +32,16 @@ while True:
         conn.commit()
         #print('Green Record written to DB.')
         os.system('mpg123 -q yeah.mp3 &')
+        time.sleep(sleep_time)
     
-    if input_stateBlue == False:
-        print('BLUE Button Pressed')
+    if input_stateYellow == False:
+        print('ORANGE Button Pressed')
         c.execute("INSERT INTO tblHONResults ('HON_VALUE','LOYALTY_ID') VALUES (2,'NA')")
         conn.commit()
         os.system('mpg123 -q okay.mp3 &')
         time.sleep(sleep_time)
 
-    if input_stateYellow == False:
+    if input_stateOrange == False:
         print('YELLOW Button Pressed')
         c.execute("INSERT INTO tblHONResults ('HON_VALUE','LOYALTY_ID') VALUES (3,'NA')")
         conn.commit()
@@ -54,7 +55,7 @@ while True:
         os.system('mpg123 -q what.mp3 &')
         time.sleep(sleep_time)
 
-except KeyboardInterrupt:
-    GPIO.cleanup()
-GPIO.cleanup()
+#    except KeyboardInterrupt:
+#        GPIO.cleanup()
+#GPIO.cleanup()
     
