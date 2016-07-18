@@ -9,7 +9,7 @@ conn = lite.connect('HON.db')
 c = conn.cursor()
 
 #sleep time between button press
-sleep_time = 3.0
+sleep_time = 2.0
 
 GPIO.setmode(GPIO.BCM)
 
@@ -54,5 +54,7 @@ while True:
         os.system('mpg123 -q what.mp3 &')
         time.sleep(sleep_time)
 
-
+except KeyboardInterrupt:
+    GPIO.cleanup()
+GPIO.cleanup()
     
